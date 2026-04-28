@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beauty Salon | Nail & Kadeřnictví</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #fffaf8;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: white;
+      padding: 25px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+      color: #b76e79;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      margin-left: 25px;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #b76e79;
+    }
+
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 70px 8%;
+      background: linear-gradient(135deg, #fffaf8, #fdecef);
+    }
+
+    .hero-text {
+      max-width: 550px;
+    }
+
+    .hero-text h1 {
+      font-size: 56px;
+      line-height: 1.1;
+      color: #222;
+      margin-bottom: 20px;
+    }
+
+    .hero-text h1 span {
+      color: #b76e79;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #b76e79;
+      color: white;
+      padding: 14px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 8px 20px rgba(183,110,121,0.3);
+    }
+
+    .btn:hover {
+      background: #9f5a65;
+    }
+
+    .hero-card {
+      background: white;
+      padding: 35px;
+      border-radius: 30px;
+      width: 360px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+      text-align: center;
+    }
+
+    .hero-card img {
+      width: 100%;
+      border-radius: 25px;
+      margin-bottom: 20px;
+    }
+
+    .hero-card h3 {
+      color: #b76e79;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    section {
+      padding: 80px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      color: #222;
+    }
+
+    .section-title p {
+      color: #777;
+      margin-top: 10px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+
+    .service-box {
+      background: white;
+      padding: 35px 25px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+      transition: 0.3s;
+    }
+
+    .service-box:hover {
+      transform: translateY(-8px);
+    }
+
+    .service-box .icon {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .service-box h3 {
+      color: #b76e79;
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    .about {
+      display: flex;
+      gap: 50px;
+      align-items: center;
+      background: white;
+      border-radius: 35px;
+      padding: 50px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    }
+
+    .about-text h2 {
+      font-size: 38px;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .price-table {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 30px;
+      border-bottom: 1px solid #f1d7dc;
+    }
+
+    .price-row:last-child {
+      border-bottom: none;
+    }
+
+    .price-row span:last-child {
+      color: #b76e79;
+      font-weight: bold;
+    }
+
+    .contact {
+      background: linear-gradient(135deg, #b76e79, #d9a7ad);
+      color: white;
+      text-align: center;
+      border-radius: 35px;
+      padding: 60px 30px;
+    }
+
+    .contact h2 {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .contact p {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #777;
+      background: white;
+    }
+
+    @media (max-width: 850px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav a {
+        margin: 0 8px;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-text h1 {
+        font-size: 42px;
+      }
+
+      .hero-card {
+        width: 100%;
+        margin-top: 40px;
+      }
+
+      .about {
+        flex-direction: column;
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Beauty Salon</div>
+    <nav>
+      <a href="#sluzby">Služby</a>
+      <a href="#onas">O nás</a>
+      <a href="#cenik">Ceník</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Krása, styl a péče <span>na jednom místě</span></h1>
+      <p>
+        Profesionální nail studio a kadeřnictví. Nabízíme moderní střihy,
+        barvení vlasů, manikúru, pedikúru a gelové nehty v příjemném prostředí.
+      </p>
+      <a href="#kontakt" class="btn">Objednat se</a>
+    </div>
+
+    <div class="hero-card">
+      <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=800&q=80" alt="Nail salon">
+      <h3>Luxusní péče</h3>
+      <p>Odpočiňte si a dopřejte si krásu, kterou si zasloužíte.</p>
+    </div>
+  </section>
+
+  <section id="sluzby">
+    <div class="section-title">
+      <h2>Naše služby</h2>
+      <p>Kvalitní péče pro vaše vlasy i nehty</p>
+    </div>
+
+    <div class="services">
+      <div class="service-box">
+        <div class="icon">💅</div>
+        <h3>Manikúra</h3>
+        <p>Precizní úprava nehtů, gel lak, modeláž a moderní nail design.</p>
+      </div>
+
+      <div class="service-box">
+        <div class="icon">🦶</div>
+        <h3>Pedikúra</h3>
+        <p>Profesionální péče o nohy pro krásný a upravený vzhled.</p>
+      </div>
+
+      <div class="service-box">
+        <div class="icon">✂️</div>
+        <h3>Dámský střih</h3>
+        <p>Moderní střihy podle tvaru obličeje a vašeho osobního stylu.</p>
+      </div>
+
+      <div class="service-box">
+        <div class="icon">🎨</div>
+        <h3>Barvení vlasů</h3>
+        <p>Stylové barvení, melír, tónování a profesionální vlasová péče.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="onas">
+    <div class="about">
+      <div class="about-text">
+        <h2>O našem salonu</h2>
+        <p>
+          Jsme moderní salon krásy zaměřený na kadeřnické služby a nehtový design.
+          Naším cílem je, aby každý zákazník odcházel spokojený, krásný a sebevědomý.
+        </p>
+        <p>
+          Spojujeme profesionální přístup, kvalitní materiály a příjemnou atmosféru.
+          Každému zákazníkovi se věnujeme individuálně.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="cenik">
+    <div class="section-title">
+      <h2>Ceník</h2>
+      <p>Orientační ceny našich služeb</p>
+    </div>
+
+    <div class="price-table">
+      <div class="price-row">
+        <span>Manikúra</span>
+        <span>od 350 Kč</span>
+      </div>
+      <div class="price-row">
+        <span>Gel lak</span>
+        <span>od 500 Kč</span>
+      </div>
+      <div class="price-row">
+        <span>Gelové nehty</span>
+        <span>od 700 Kč</span>
+      </div>
+      <div class="price-row">
+        <span>Pedikúra</span>
+        <span>od 450 Kč</span>
+      </div>
+      <div class="price-row">
+        <span>Dámský střih</span>
+        <span>od 400 Kč</span>
+      </div>
+      <div class="price-row">
+        <span>Barvení vlasů</span>
+        <span>od 900 Kč</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <div class="contact">
+      <h2>Objednejte se ještě dnes</h2>
+      <p>📍 Adresa: Vaše adresa, Česká republika</p>
+      <p>📞 Telefon: +420 777 777 777</p>
+      <p>📧 Email: info@beautysalon.cz</p>
+      <br>
+      <a href="tel:+420777777777" class="btn">Zavolat</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Beauty Salon | Nail Studio & Kadeřnictví
+  </footer>
+
+</body>
+</html>
